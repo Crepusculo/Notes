@@ -1,6 +1,7 @@
 
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
+- [PPT Summary](#ppt-summary)   
 - [Introduction](#introduction)   
    - [Computer Network](#computer-network)   
    - [The network edge](#the-network-edge)   
@@ -22,10 +23,19 @@
    - [A Comparison of OSI and TCP/IP](#a-comparison-of-osi-and-tcpip)   
    - [A Critique of the OSI Model and Protocols](#a-critique-of-the-osi-model-and-protocols)   
    - [A Critique of the TCP/IP Reference Model](#a-critique-of-the-tcpip-reference-model)   
+- [Architecture of the Internet](#architecture-of-the-internet)   
 
 <!-- /MDTOC -->
 
+# PPT Summary
++ Why computer networking: computer network applications
++ The concept of Computer Network, and the categories of computer networks
++ Network architecture, protocol stack network reference model,
++ Some important concepts: layer, protocol, service, interface, service primitive
++ Connection-oriented service vs. connectionless service
+
 # Introduction
+
 ## Computer Network
 **Computer Network**: a collection of autonomous computers interconnected by a single technology
  - Interconnected: be able to exchange information,
@@ -191,9 +201,55 @@ The relationship between a service and a protocol.
 transmitting $.$ /  congestion $.$ / session $.$ / syntax $.$ / semantics $.$ /
 
 ## The TCP/IP Reference Model
+![Resource\computer_works_intro_7_tcpip.jpg](..\Resource\computer_works_intro_7_tcpip.jpg)
+
+| Layer(OSI name) |            |   | TCP/IP|
+|---|:-:|---|---|
+| **Application + Presentation + Seesion**       | TELNET, FTP, SMTP, DNS  | ↓Protocols |  **Application**
+| **Transport**             |  TCP, UDP         || **Transport**
+| **Network**               |     IP        ||**Internet**|
+| **Physical + Data link** | ARPNET, SATNET, Packet radio, LAN | Networks | **Host-to-network** |
+Protocols and networks in the TCP/IP model initially.
+
+
+- **The Host-to-Network layer:**
+    - The TCP/IP reference model does not really say much about what happens below the internet layer.
+- **The Internet layer:**
+    - To permit hosts to inject packets into any network and have them travel independently to the destination (potentially on a different network).
+    - The internet layer defines an official packet format and protocol called IP (Internet Protocol).
+- **The transport layer:**
+    - Two end-to-end transport protocols have been defined: **TCP** (Transmission Control Protocol), and **UDP** (User Datagram Protocol)
+    - Is designed to allow peer entities on the source and destination hosts to carry on a conversation, just as in the OSI transport layer.
+- **The application layer:**
+    - Telnet, FTP, SMTP, DNS
+
+inject $v.$ 注入/ permit  $v.$ 允许/ potentially  $adv.$ 潜在 /
+
 
 ## A Comparison of OSI and TCP/IP
+1. The OSI model made the distinction between services, interfaces, and protocols explicit, while the TCP/IP model did not originally clearly distinguish between these three concepts.
+2. The OSI reference model was devised before the corresponding protocols were invented. With TCP/IP the reverse was true.
+
+distinction devised invented reverse explicit
 
 ## A Critique of the OSI Model and Protocols
+- Why OSI did not take over the world
+  - Bad timing
+  - Bad technology
+  - Bad implementations
+  - Bad politics
 
+Critique
 ## A Critique of the TCP/IP Reference Model
+- Problems:
+    - Service, interface, and protocol not distinguished
+    - Not a general model
+    - Host-to-network “layer” not really a layer
+    - No mention of physical and data link layers
+    - Minor protocols deeply entrenched, hard to replace
+
+# Architecture of the Internet
+![Resource\computer_works_intro_8.jpg][8]
+Overview of the Internet
+
+[8]:..\Resource\computer_works_intro_8.jpg
