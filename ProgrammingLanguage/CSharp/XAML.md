@@ -1,15 +1,18 @@
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-- [XAML](#xaml)   
-   - [Advantages](#advantages)   
-   - [MyFirstWpfApplication](#myfirstwpfapplication)   
-      - [Windows1.xaml](#windows1xaml)   
-      - [App.xaml](#appxaml)   
-         - [App.xaml](#appxaml)   
-         - [App.xaml.cs](#appxamlcs)   
-- [来介绍一些容器控件](#来介绍一些容器控件)   
-   - [Grid](#grid)   
-- [布... 布局观?](#布-布局观)   
+- [XAML](#xaml)
+   - [Advantages](#advantages)
+   - [MyFirstWpfApplication](#myfirstwpfapplication)
+      - [Windows1.xaml](#windows1xaml)
+      - [App.xaml](#appxaml)
+         - [App.xaml](#appxaml)
+         - [App.xaml.cs](#appxamlcs)
+   - [XAML 语法](#xaml-语法)
+      - [TypeConverter](#typeconverter)
+            - [操作实例:](#操作实例)
+- [来介绍一些容器控件](#来介绍一些容器控件)
+   - [Grid](#grid)
+- [布... 布局观?](#布-布局观)
 
 <!-- /MDTOC -->
 
@@ -111,6 +114,91 @@ class xxx:Windows
 
 #### App.xaml.cs
 
+## XAML 语法
+- 创建的 UI 是与 XAML 结构相同的树状结构
+    - 两个操作UI树的辅助类:
+        - `VisualTreeHelper`
+        - `LogicalTreeHelper`
+- XAML 是一种声明性的语言
+    - XAML 会对每个标签创建一个与之对应的对象
+    - XAML 语言不能编写程序的运行逻辑
+    - XAML 使用字符串进行简单赋值
+    - 或者使用属性元素(Properties Element)进行复杂赋值
+    - 区分两种"属性": 使用 Attribute 为 对象的 Property 进行赋值
+        - 可以简单理解为 Attribute 对应标签, Properties 对应类
+    - 举个例子, 来看看给 `Rectangle` 搞一个 `Fill`标签
+        - ```{xml}
+            ...
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Rectangle x:Name="rectangle" Width="200" Height="200" Fill="Blue"/>
+            </Grid>
+            ...
+          ```
+          ![Resource\cs_wpf_pic_3.png][3]
+          "Blue" 这个字符串最终被翻译成一个 `SolidColorBrush` 对象并赋值给了 rectangle 对象, 换成 C# 代码是这样:
+          ```{cs}
+            // ...
+            SolidColorBrush sBrush = new SolidColorBrush();
+            sBrush.Color = Colors.Blue;
+            this.rectangle.Fill = sBrush;
+            // ...
+          ```
+- Attribute=Value 这种形式的语法赋值中, 由于 XAML 语法的限制, Value 只能是一个字符串值
+    - > **如果一个类能使用 XAML 进行声明,并允许它的 Property 与 XAML 标签的 Attribute 互相映射, 那就需要为这些 Property 准备适当的转换机制**
+
+        - 使用 `TypeConverter` 类的派生类, 在派生类中重写 `TpyeConverter` 的一些方法
+
+    - > **由于 Value 是一个字符串, 所以其格式复杂度有限, 尽管可以在转换机制里包含一定的按格式解析字符串的功能以便转换成较复杂的目标对象, 但这会让最终的 XAML 使用者头疼不已。因为他们不得不在没有编码辅助的情况下手写一个格式复杂的字符串以满足赋值要求**
+
+        - 使用属性元素 (Property Element)
+
+### TypeConverter
+将 XAML 标签的 Attribute 与对象的 Property 进行映射
+
+##### 操作实例:
+
+首先我们准备一个类
+```{cs}
+public class Human
+{
+    public string Name {get; set;}
+    public Human Child {get; set;}
+}
+```
+现在我们的期望是 如果在XAML里这样写:
+```{xml}
+    <Window.Resource>
+        <local:Human x:key="Human" Child="ABC"/>
+    </Window.Resource>
+```
+则能够为 Human 实例的 Child 属性赋予一个 Human 类型的值, 并且 Child.Name就是这个这个字符串的值。
+
+先来试试直接写行不行。 在 UI 上添加一个按钮 button1
+注册一个点击事件
+```{cs}
+private void button1_Click(object sender, RoutedEventArgs e)
+{
+    Human h = (Human)this.FindResource("human");
+    MessageBox.Show(h.Child.Name);
+}
+```
+编译没有问题, 但是在单击按钮之后程序抛出异常, 告诉 Child 不存在。
+原因很简单: Human 的 Child 是 Human 类型, 而XAML代码中的 "ABC" 是个字符串, 编译器无法把一个字符串类型转换给一个 Human 实例。
+
+现在我们就需要使用 `TypeConverter` 和 `TypeConverterAttribute` 这两个类了
+
+1. 继承 `TypeConverter` 类, 重写 `ConvertFrom` 方法。 这个方法有一个参数名为 value, 这个值就是在 XAML 文档里为它设置的值, 我们要做的就是讲 value 转型到适合的类型。
+```{cs}
+public class StringToHumanTypeConverter : TypeConverter
+{
+    public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
+    {
+        public override object
+    }
+}
+```
+
+
 # 来介绍一些容器控件
 ## Grid
 - WPF 中的 Grid 的每一个单元格中可以放置多个控件，但控件可能会层叠在一起。
@@ -133,5 +221,6 @@ class xxx:Windows
 ---------------------------------------
 
 
-[1]: ../\\../\Resource\cs_wpf_pic_1.png
-[2]: ../\\../\Resource\cs_wpf_pic_2.png
+[1]: ../\\../\\Resource\cs_wpf_pic_1.png
+[2]: ../\\../\\Resource\cs_wpf_pic_2.png
+[3]: ../\\../\\Resource\cs_wpf_pic_3.png
