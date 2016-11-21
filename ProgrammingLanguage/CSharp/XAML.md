@@ -56,7 +56,7 @@ Extensible Application Markup Language
 
 ### Windows1.xaml
 Let us see see the simplest code in xaml
-```{xml}
+```xml
 <Window x:Class="MyFirstWpfApplication.Window1"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -68,7 +68,7 @@ Let us see see the simplest code in xaml
 ```
 
 关于`xmlns`定义名称空间:
-```{xml}
+```xml
 xmlns[:可选的映射前缀]="名称空间"
 ```
 在没有写可选映射前缀的情况下, 意味着所有来自于这个名称空间的标签前都不用加前缀,这个没有映射前缀的名称空间称为"默认名称空间"
@@ -76,12 +76,12 @@ xmlns[:可选的映射前缀]="名称空间"
 默认名称空间只能有一个
 
 默认引进来的两个东西拥有一堆中
-`"http://schemas.microsoft.com/winfx/2006/xaml/presentation"`中含有一堆 `System.Windows` 下的类库, 对应的是绘制UI相关的程序集
+`"http://schemas.microsoft.com/winfx/2006/xaml/presentation"` 中含有一堆 `System.Windows` 下的类库, 对应的是绘制UI相关的程序集
 `"http://schemas.microsoft.com/winfx/2006/xaml"`中则对应一些与 XAML 语法和编译相关的 CLR 名称空间, 是语言层面的东西
 
 
 形如 `x:Class="xxx"`的xaml文件本质上会在编译过程中生成一个继承自 `Window` 的类
-```{cs}
+```cs
 class xxx:Windows
 {
     ...
@@ -97,7 +97,7 @@ class xxx:Windows
 ### App.xaml
 #### App.xaml
 
-```{xml}
+```xml
 <Application x:Class="WpfApp1.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -127,7 +127,7 @@ class xxx:Windows
     - 区分两种"属性": 使用 Attribute 为 对象的 Property 进行赋值
         - 可以简单理解为 Attribute 对应标签, Properties 对应类
     - 举个例子, 来看看给 `Rectangle` 搞一个 `Fill`标签
-        - ```{xml}
+        - ```xml
             ...
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Rectangle x:Name="rectangle" Width="200" Height="200" Fill="Blue"/>
@@ -136,7 +136,7 @@ class xxx:Windows
           ```
           ![Resource\cs_wpf_pic_3.png][3]
           "Blue" 这个字符串最终被翻译成一个 `SolidColorBrush` 对象并赋值给了 rectangle 对象, 换成 C# 代码是这样:
-          ```{cs}
+          ```cs
             // ...
             SolidColorBrush sBrush = new SolidColorBrush();
             sBrush.Color = Colors.Blue;
@@ -158,7 +158,7 @@ class xxx:Windows
 ##### 操作实例:
 
 首先我们准备一个类
-```{cs}
+```cs
 public class Human
 {
     public string Name {get; set;}
@@ -166,7 +166,7 @@ public class Human
 }
 ```
 现在我们的期望是 如果在XAML里这样写:
-```{xml}
+```xml
     <Window.Resource>
         <local:Human x:key="Human" Child="ABC"/>
     </Window.Resource>
@@ -175,7 +175,7 @@ public class Human
 
 先来试试直接写行不行。 在 UI 上添加一个按钮 button1
 注册一个点击事件
-```{cs}
+```cs
 private void button1_Click(object sender, RoutedEventArgs e)
 {
     Human h = (Human)this.FindResource("human");
