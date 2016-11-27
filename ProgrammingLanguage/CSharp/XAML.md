@@ -188,7 +188,7 @@ private void button1_Click(object sender, RoutedEventArgs e)
 现在我们就需要使用 `TypeConverter` 和 `TypeConverterAttribute` 这两个类了
 
 1. 继承 `TypeConverter` 类, 重写 `ConvertFrom` 方法。 这个方法有一个参数名为 value, 这个值就是在 XAML 文档里为它设置的值, 我们要做的就是讲 value 转型到适合的类型。
-```{cs}
+```cs
 public class StringToHumanTypeConverter : TypeConverter
 {
     public override object ConvertFrom(ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
