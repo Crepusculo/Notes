@@ -54,3 +54,28 @@
 | コンビニ         | KONBINI |  |
 | レストラン       | RESUTORAN |  |
 | ガソリンスタンド | GAZORINSUTANDO |  |
+
+# 家　いえ
+| 日 | (伪)罗马 | 中 | 假名 |
+|---|---|--|--|
+| 玄関 | GENKAN |  |
+| 廊下 | ROUKA |  |
+| トイレ | TOIRE |  |
+| 室 | SHITSU |  |
+| 浴室 | YOKUSHITSU |  |
+| 洗面所 | SENMENJO |  |
+| 台所 | DAIGOKORO |  |
+| 居間 | IMA |  |
+| 寝室 | SHINSHITSU |  |
+| 和室 | WASHITSU |  |
+| ベランダ | BERANDA |  |
+| 庭 | NIWA |  |
+| 屋根 | YANE |  |
+| ポスト | POSUTO |  |
+| ガレージ | GAREーJI |  |
+| ドア | DOA | DOOR |
+| 窓 | MADO | WINDOW |
+| カーテン |  | KAーTEN |
+| エアコん | EAKON |  |
+| ソファー | SOFUAー |  |
+|  |  |  |
