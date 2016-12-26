@@ -75,7 +75,8 @@
 | ガレージ | GAREーJI |  |
 | ドア | DOA | DOOR |
 | 窓 | MADO | WINDOW |
-| カーテン |  | KAーTEN |
+| カーテン | KAーTEN |
 | エアコん | EAKON |  |
 | ソファー | SOFUAー |  |
+| テーブル | TEーBURE |  |
 |  |  |  |
