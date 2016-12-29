@@ -207,7 +207,8 @@ If you are using Gradle, you can run the application using `./gradlew bootRun`. 
 java -jar build/libs/gs-rest-service-0.1.0.jar
 ```
 __Maven__
-If you are using Maven, you can run the application using `./mvnw spring-boot:run`. Or you can build the JAR file with `./mvnw clean package`. Then you can run the JAR file:
+If you are using Maven, you can run the application using `./mvnw spring-boot:run`. Or you can build the JAR file with `./mvnw clean package`. Then you
+ can run the JAR file:
 
 `java -jar target/gs-rest-service-0.1.0.jar`
 
