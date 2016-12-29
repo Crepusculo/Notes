@@ -11,3 +11,9 @@
    `Install-Package SQLite.Net.Async-PCL`
 3. 之后就可以在项目中看到引用的包了
     ![uwp_sqlite_1](/assets/uwp_sqlite_1.jpg)
+4. 接下来我们还需要给这玩意儿配置引用
+    ![uwp_sqlite_2](/assets/uwp_sqlite_2.png)
+    引用 -> Universal Windows -> 扩展
+    ![uwp_sqlite_3](/assets/uwp_sqlite_3.png)
+
+    ![uwp_sqlite_4](/assets/uwp_sqlite_4.png)
