@@ -2,6 +2,7 @@
 <!-- toc orderedList:0 depthFrom:1 depthTo:6 -->
 
 - [`const`](#const)
+- [`internal`](#internal)
 - [`readonly`](#readonly)
 - [`sealed`](#sealed)
 - [`out`](#out)
@@ -15,6 +16,10 @@
 # `const`
 [`readonly`](#readonly) 为运行时常量，程序运行时进行赋值，赋值完成后便无法更改，因此也有人称其为只读变量。
 `const`为编译时常量，程序编译时将对常量值进行解析，并将所有常量引用替换为相应值。
+# `internal`
+被 internal 修饰的东西只能在本程序集（当前项目）内被使用。
+被 protected internal 修饰的属性 / 方法 可以在其他项目中, 被派生类使用
+
 # `readonly`
 `readonly`为运行时常量，程序运行时进行赋值，赋值完成后便无法更改，因此也有人称其为只读变量。
 [`const`](#const)为编译时常量，程序编译时将对常量值进行解析，并将所有常量引用替换为相应值。
