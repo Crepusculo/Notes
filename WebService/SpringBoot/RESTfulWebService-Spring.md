@@ -1,14 +1,14 @@
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-- [Hello world Sample](#hello-world-sample)   
-   - [**1. 创建一个Spring项目**](#1-创建一个spring项目)   
-   - [**2.Rewrite`build.gradle`**](#2rewritebuildgradle)   
-   - [__3. Create a resource representation class(POJO)__](#__3-create-a-resource-representation-classpojo__)   
-   - [__4. Create a resource controller__](#__4-create-a-resource-controller__)   
-   - [__5. Make the application executable__](#__5-make-the-application-executable__)   
-   - [6.__Build an executable jar__](#6__build-an-executable-jar__)   
-   - [7.Test the service](#7test-the-service)   
-- [Resource](#resource)   
+- [Hello world Sample](#hello-world-sample)
+   - [**1. 创建一个Spring项目**](#1-创建一个spring项目)
+   - [**2.Rewrite`build.gradle`**](#2rewritebuildgradle)
+   - [__3. Create a resource representation class(POJO)__](#__3-create-a-resource-representation-classpojo__)
+   - [__4. Create a resource controller__](#__4-create-a-resource-controller__)
+   - [__5. Make the application executable__](#__5-make-the-application-executable__)
+   - [6.__Build an executable jar__](#6__build-an-executable-jar__)
+   - [7.Test the service](#7test-the-service)
+- [Resource](#resource)
 
 <!-- /MDTOC -->
 # Hello world Sample
