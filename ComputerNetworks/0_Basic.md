@@ -1,29 +1,29 @@
 
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-- [PPT Summary](#ppt-summary)   
-- [Introduction](#introduction)   
-   - [Computer Network](#computer-network)   
-   - [The network edge](#the-network-edge)   
-      - [The network core](#the-network-core)   
-         - [[!important] Circuit-switching](#important-circuit-switching)   
-         - [[!important] Package-switching](#important-package-switching)   
-      - [Internet Structure: network of networks](#internet-structure-network-of-networks)   
-   - [Local Area Networks, LANs](#local-area-networks-lans)   
-   - [Wide Area Networks, WANs](#wide-area-networks-wans)   
-   - [Network Software](#network-software)   
-      - [Protocol Hierarchies](#protocol-hierarchies)   
-      - [Design Issues for the Layers](#design-issues-for-the-layers)   
-      - [Connection-Oriented and Connectionless Services](#connection-oriented-and-connectionless-services)   
-      - [Service Primitives](#service-primitives)   
-      - [The Relationship of Services to Protocols](#the-relationship-of-services-to-protocols)   
-- [Reference Models](#reference-models)   
-   - [The OSI Reference Model](#the-osi-reference-model)   
-   - [The TCP/IP Reference Model](#the-tcpip-reference-model)   
-   - [A Comparison of OSI and TCP/IP](#a-comparison-of-osi-and-tcpip)   
-   - [A Critique of the OSI Model and Protocols](#a-critique-of-the-osi-model-and-protocols)   
-   - [A Critique of the TCP/IP Reference Model](#a-critique-of-the-tcpip-reference-model)   
-- [Architecture of the Internet](#architecture-of-the-internet)   
+- [PPT Summary](#ppt-summary)
+- [Introduction](#introduction)
+   - [Computer Network](#computer-network)
+   - [The network edge](#the-network-edge)
+      - [The network core](#the-network-core)
+         - [[!important] Circuit-switching](#important-circuit-switching)
+         - [[!important] Package-switching](#important-package-switching)
+      - [Internet Structure: network of networks](#internet-structure-network-of-networks)
+   - [Local Area Networks, LANs](#local-area-networks-lans)
+   - [Wide Area Networks, WANs](#wide-area-networks-wans)
+   - [Network Software](#network-software)
+      - [Protocol Hierarchies](#protocol-hierarchies)
+      - [Design Issues for the Layers](#design-issues-for-the-layers)
+      - [Connection-Oriented and Connectionless Services](#connection-oriented-and-connectionless-services)
+      - [Service Primitives](#service-primitives)
+      - [The Relationship of Services to Protocols](#the-relationship-of-services-to-protocols)
+- [Reference Models](#reference-models)
+   - [The OSI Reference Model](#the-osi-reference-model)
+   - [The TCP/IP Reference Model](#the-tcpip-reference-model)
+   - [A Comparison of OSI and TCP/IP](#a-comparison-of-osi-and-tcpip)
+   - [A Critique of the OSI Model and Protocols](#a-critique-of-the-osi-model-and-protocols)
+   - [A Critique of the TCP/IP Reference Model](#a-critique-of-the-tcpip-reference-model)
+- [Architecture of the Internet](#architecture-of-the-internet)
 
 <!-- /MDTOC -->
 
@@ -39,13 +39,13 @@
 ## Computer Network
 **Computer Network**: a collection of autonomous computers interconnected by a single technology
  - Interconnected: be able to exchange information,
- - the connection could be via  copper wire, fiber optics, microwaves, infrared, and communication satellites
+ - the connection could be via copper wire, fiber optics, microwaves, infrared, and communication satellites
  - Single technology:
-   - Internet is not a single network but a network of networks
-   - World Wide Web is a distributed system that runs on top of the Internet
+   - __Internet__ is not a single network but a network of networks
+   - __World Wide Web__ is a distributed system that runs on top of the Internet
 
 autonomous $n.$ 自主性
-
+interconnect $v.$ 互联
 ## The network edge
 - end systems (hosts):
     - run application programs
@@ -78,7 +78,7 @@ LANs are distinguished from other kinds of networks by three characterisitcs:
 3)  their topology
 
 Two broadcast networks: **(a) Bus**; **(b) Ring**
-![Two broadcast networks](..\Resource\computer_works_intro_1.jpg)
+![Two broadcast networks](..\assets\computerwork\computer_works_intro_1.jpg)
 
 ## Wide Area Networks, WANs
 WAN: spans a large geographical area, often a country or continent.
@@ -99,7 +99,7 @@ protocal $n.$ 协议 / hierarchies $n.$ 层次 / issue $n.$ 问题,议题 / orie
 
 ### Protocol Hierarchies
 
-![](..\Resource\computer_works_intro_2.jpg)
+![](..\assets\computerwork\computer_works_intro_2.jpg)
 
 Layers, protocals, and interfaces
 
@@ -118,7 +118,7 @@ Layers, protocals, and interfaces
 - **协议栈**
 - A list of protocols used by a certain system, one protocol per layer, is called a protocol stack.
 
-![computer_works_intro_3](..\Resource\computer_works_intro_2.jpg)Example information flow supporting virtual communication in layer 5.
+![computer_works_intro_3](..\assets\computerwork\computer_works_intro_2.jpg)Example information flow supporting virtual communication in layer 5.
 
 entity $n.$ 实体 / comprise $v.$ 包括 / corresponding $adj.$ 对应的 / peer $n.$ 对等体 / adjacent $v.$ 相邻
 
@@ -162,7 +162,7 @@ The set of primitives available depends on the nature of the service being provi
 
 比如POST啊GET啊之类乱七八糟都是 "nature of the service being provided"
 
-![Resource\computer_works_intro_4.jpg](..\Resource\computer_works_intro_4.jpg)
+![Resource\computer_works_intro_4.jpg](..\assets\computerwork\computer_works_intro_4.jpg)
 Packets sent in a simple client-server interaction on a connection-oriented network
 
 ### The Relationship of Services to Protocols
@@ -177,7 +177,7 @@ The relationship between a service and a protocol.
 + A Critique of the TCP/IP Reference Model
 
 ## The OSI Reference Model
-![Resource\computer_works_intro_6_osi.jpg](..\Resource\computer_works_intro_6_osi.jpg)
+![Resource\computer_works_intro_6_osi.jpg](..\assets\computerwork\computer_works_intro_6_osi.jpg)
 
 - **The physical layer:**
     - Concerned with transmitting raw bits over a communication channel.
@@ -201,7 +201,7 @@ The relationship between a service and a protocol.
 transmitting $.$ /  congestion $.$ / session $.$ / syntax $.$ / semantics $.$ /
 
 ## The TCP/IP Reference Model
-![Resource\computer_works_intro_7_tcpip.jpg](..\Resource\computer_works_intro_7_tcpip.jpg)
+![Resource\computer_works_intro_7_tcpip.jpg](..\assets\computerwork\computer_works_intro_7_tcpip.jpg)
 
 | Layer(OSI name) |            |   | TCP/IP|
 |---|:-:|---|---|
@@ -216,7 +216,7 @@ Protocols and networks in the TCP/IP model initially.
     - The TCP/IP reference model does not really say much about what happens below the internet layer.
 - **The Internet layer:**
     - To permit hosts to inject packets into any network and have them travel independently to the destination (potentially on a different network).
-    - The internet layer defines an official packet format and protocol called IP (Internet Protocol).
+    - The internet layer defines an official packet format and protocol called __IP__ (Internet Protocol).
 - **The transport layer:**
     - Two end-to-end transport protocols have been defined: **TCP** (Transmission Control Protocol), and **UDP** (User Datagram Protocol)
     - Is designed to allow peer entities on the source and destination hosts to carry on a conversation, just as in the OSI transport layer.
@@ -249,7 +249,7 @@ Critique
     - Minor protocols deeply entrenched, hard to replace
 
 # Architecture of the Internet
-![Resource\computer_works_intro_8.jpg][8]
+![assets\computerwork\computer_works_intro_8.jpg][8]
 Overview of the Internet
 
-[8]:..\Resource\computer_works_intro_8.jpg
+[8]:..\assets\computerwork\computer_works_intro_8.jpg
