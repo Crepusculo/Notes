@@ -1,40 +1,40 @@
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-- [引入 CSS](#引入-css)   
-   - [使用元素内嵌样式](#使用元素内嵌样式)   
-   - [使用文档内嵌样式](#使用文档内嵌样式)   
-   - [使用外部样式表](#使用外部样式表)   
-   - [从其它样式表导入样式](#从其它样式表导入样式)   
-- [规定字符集](#规定字符集)   
-- [层叠-继承-重要性](#层叠-继承-重要性)   
-   - [浏览器样式 (用户代理样式)](#浏览器样式-用户代理样式)   
-   - [用户样式](#用户样式)   
-   - [__样式层叠顺序__](#__样式层叠顺序__)   
-      - [用`!important`调整层叠次序](#用important调整层叠次序)   
-   - [同级样式冲突](#同级样式冲突)   
-   - [具体程度相同样式](#具体程度相同样式)   
+- [引入 CSS](#引入-css)
+   - [使用元素内嵌样式](#使用元素内嵌样式)
+   - [使用文档内嵌样式](#使用文档内嵌样式)
+   - [使用外部样式表](#使用外部样式表)
+   - [从其它样式表导入样式](#从其它样式表导入样式)
+- [规定字符集](#规定字符集)
+- [层叠-继承-重要性](#层叠-继承-重要性)
+   - [浏览器样式 (用户代理样式)](#浏览器样式-用户代理样式)
+   - [用户样式](#用户样式)
+   - [__样式层叠顺序__](#__样式层叠顺序__)
+      - [用`!important`调整层叠次序](#用important调整层叠次序)
+   - [同级样式冲突](#同级样式冲突)
+   - [具体程度相同样式](#具体程度相同样式)
 
 <!-- /MDTOC -->
 <style type="text/css" >
-        .green{
-            background:#009C67;
-            text-align:center;
-            font-size: 1.5em;
-            color: white;
-        }
-        .red{
-            background:#F4511E;
-            text-align:left;
-            padding-left: 16px;
-            font-size: 1.2em;
-            color: white
-        }
-        .html{
-            border:thin solid #009C67; padding:12px; margin:12px;
-        }
-        .editable{
-            background:#212121;
-        }
+.green{
+    background:#009C67;
+    text-align:center;
+    font-size: 1.5em;
+    color: white;
+}
+.red{
+    background:#F4511E;
+    text-align:left;
+    padding-left: 16px;
+    font-size: 1.2em;
+    color: white
+}
+.html{
+    border:thin solid #009C67; padding:12px; margin:12px;
+}
+.editable{
+    background:#212121;
+}
 </style>
 
 # 引入 CSS
@@ -165,4 +165,4 @@ c. 选择其中元素名和伪元素的数目
 比如, 1-0-0 的得分比 0-5-5 这个得分代表的具体程度更高
 
 ## 具体程度相同样式
-如果几条样式的具体程度相同, 
+如果几条样式的具体程度相同,那么浏览器会根据其位置的先后顺序
