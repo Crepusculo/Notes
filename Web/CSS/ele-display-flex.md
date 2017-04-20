@@ -68,6 +68,15 @@ cross-size 指容器内元素的竖宽度
 
 
 ## `justify-content`
+https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content
+
++ justify-content 作用于 main-axis
++ 对于flex和非flex都起作用, 但是有不同的执行参数
+    + flex-start | flex-end
+    + start | end
+    + center
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content#result
 
 ### order
 [stackoverflow e.g.](http://stackoverflow.com/questions/32991051/absolutely-positioned-flex-item-not-being-removed-from-normal-flow-in-firefox)
