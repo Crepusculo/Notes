@@ -1,26 +1,26 @@
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-- [FLEX](#flex)   
-   - [除此之外, 还有](#除此之外-还有)   
-   - [`justify-content`](#justify-content)   
-      - [order](#order)   
-   - [容器内部](#容器内部)   
-      - [`order`](#order)   
-      - [`flex-grow`](#flex-grow)   
-      - [`flex-shrink`](#flex-shrink)   
-      - [`flex-basis`](#flex-basis)   
-      - [`flex`](#flex)   
-      - [`align-self`](#align-self)   
-- [Trap * Trick](#trap-trick)   
-   - [flex 内部模型](#flex-内部模型)   
-   - [Lab](#lab)   
-- [Other display mode](#other-display-mode)   
-   - [<div class="green">display-outside</div>](#div-classgreendisplay-outsidediv)   
-   - [<div class="green">display-inside</div>](#div-classgreendisplay-insidediv)   
-   - [<div class="green">display-listitem</div>](#div-classgreendisplay-listitemdiv)   
-   - [<div class="green">display-internal</div>](#div-classgreendisplay-internaldiv)   
-   - [SYNTAX](#syntax)   
-- [Yet another Trap & Trcik](#yet-another-trap-trcik)   
+- [FLEX](#flex)
+   - [除此之外, 还有](#除此之外-还有)
+   - [`justify-content`](#justify-content)
+      - [order](#order)
+   - [容器内部](#容器内部)
+      - [`order`](#order)
+      - [`flex-grow`](#flex-grow)
+      - [`flex-shrink`](#flex-shrink)
+      - [`flex-basis`](#flex-basis)
+      - [`flex`](#flex)
+      - [`align-self`](#align-self)
+- [Trap * Trick](#trap-trick)
+   - [flex 内部模型](#flex-内部模型)
+   - [Lab](#lab)
+- [Other display mode](#other-display-mode)
+   - [<div class="green">display-outside</div>](#div-classgreendisplay-outsidediv)
+   - [<div class="green">display-inside</div>](#div-classgreendisplay-insidediv)
+   - [<div class="green">display-listitem</div>](#div-classgreendisplay-listitemdiv)
+   - [<div class="green">display-internal</div>](#div-classgreendisplay-internaldiv)
+   - [SYNTAX](#syntax)
+- [Yet another Trap & Trcik](#yet-another-trap-trcik)
 
 <!-- /MDTOC -->
 # FLEX
@@ -225,6 +225,11 @@ These values define whether an element generates display boxes at all.
     + 不产生一个特定的盒模型 只是拿来和`none`作区分
 
 <div class="green">display-legacy</div>
+
+A single-keyword example
+```
+inline-block
+```
 
 在 CSS 2 年代, 这群人使用 single-keyword 句法来描述 display 属性。
 CSS 3 里他们吃书了, 觉得 display 也应该是可以拆的
