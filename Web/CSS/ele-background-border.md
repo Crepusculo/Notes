@@ -169,3 +169,76 @@ a b c   -> a b
 a b c d -> a b
            d c
 ```
+
+# 渐变与条纹
+
+渐变 color a ->color b 的本质是划定两端, 中间根据算法填充 的一幅 `<image>`
+如果出现 a b 重合的情况 会出现一条明显的分界线
+
+<div  class="html">
+<table>
+<tr><td><div class="mbox  mono black" style="
+background:linear-gradient(90deg, red 0, white 100%);">
+0-100%
+</div></td>
+<td><div class="mbox  mono black" style="
+background:linear-gradient(90deg, red 40%, white 60%);">
+40%-60%
+</div></td>
+<td><div class="mbox  mono black" style="
+background:linear-gradient(90deg, red 50%, white 50%);">
+50%-50%
+</div></td>
+</tr>
+<tr><td><div class="mbox  mono black" style="
+background:linear-gradient(45deg, red 0, white 100%);
+background-size:50% 50%; background-repeat:repeat;">
+0-100% 45deg 50% 50% repeat
+</div></td>
+<td><div class="mbox  mono" style="
+background:linear-gradient(45deg, red 0, white 100%);
+background-size:80% 20%; background-repeat:no-repeat;">
+0-100% 45deg 80% 20% <br> no-repeat
+</div></td>
+<td><div class="mbox  mono" style="
+background:linear-gradient(45deg, red 0, white 100%);
+background-size:20% 80%; background-repeat:no-repeat;">
+0-100% 45deg 20% 80% <br> no-repeat
+</div></td>
+</tr>
+</table>
+
+如上面涉及到的, 我们可以利用 重合的颜色线来画出条纹线
+
+<table>
+<tr><td><div class="mbox black mono" style="
+background:linear-gradient(45deg, red 50%, white 0);
+ background-repeat:no-repeat;">
+50%-0 45deg 100% 100%
+</div></td>
+<td><div class="mbox  mono black" style="
+background:linear-gradient(45deg, red 50%, white 0);
+background-size:50% 50%; background-repeat:repeat;">
+50%-0 45deg 50% 50% <br> repeat
+</div></td>
+<td><div class="mbox mono black" style="
+background:linear-gradient(45deg, red 50%, white 0);
+background-size:100% 50%; background-repeat:repeat;">
+50%-0 45deg 100% 50% <br> repeat
+</div></td>
+</tr>
+<tr><td><div class="mbox mono black s" style=" text-align:center;
+background:linear-gradient(45deg, #48a 25%, #fba 0, #fba 50%, #48a 0, #48a 75%, #fba 0);
+background-size:50% 50%; background-repeat:repeat;">
+25%-0-50%-0-75%-0<br>
+蓝-粉-粉-蓝-蓝-粉<br>
+45deg 50% 50% <br> repeat
+</div></td>
+<td>1</td>
+</tr>
+<tr>
+<td>
+</tr>
+</table>
+
+</div>
