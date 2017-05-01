@@ -229,15 +229,40 @@ background-size:100% 50%; background-repeat:repeat;">
 </tr>
 <tr><td><div class="mbox mono black s" style=" text-align:center;
 background:linear-gradient(45deg, #48a 25%, #fba 0, #fba 50%, #48a 0, #48a 75%, #fba 0);
+background-size:100% 100%; background-repeat:repeat;">
+25%-0-50%-0-75%-0<br>
+蓝-粉-粉-蓝-蓝-粉<br>
+45deg 100% 100% <br>
+</div></td>
+<td><div class="mbox mono black s" style=" text-align:center;
+background:linear-gradient(45deg, #48a 25%, #fba 0, #fba 50%, #48a 0, #48a 75%, #fba 0);
 background-size:50% 50%; background-repeat:repeat;">
 25%-0-50%-0-75%-0<br>
 蓝-粉-粉-蓝-蓝-粉<br>
 45deg 50% 50% <br> repeat
 </div></td>
-<td>1</td>
-</tr>
-<tr>
-<td>
+<td><div class="mbox mono black s" style=" text-align:center;
+background:linear-gradient(45deg, #48a 25%, #fba 0, #fba 50%, #48a 0, #48a 75%, #fba 0);
+background-size:25% 25%; background-repeat:repeat;">
+25%-0-50%-0-75%-0<br>
+蓝-粉-粉-蓝-蓝-粉<br>
+45deg 25% 25% <br> repeat
+</div></td></tr>
+<tr><td><div class="mbox mono black s" style="
+background:linear-gradient(45deg, #e8a 25%, #fea 0, #fea 50%, #48a 0, #48a 75%, #fba 0);
+background-size:50% 50%; background-repeat:repeat;">
+其实是由 <br>
+[粉 - 黄 - 蓝 - 红]
+这样的四块
+拼合而成
+</div></td>
+<td><div class="mbox mono black s" style=" text-align:center;
+background:linear-gradient(45deg, #48a 10%, #fba 0, #fba 50%, #48a 0, #48a 70%, #fba 0);
+background-size:25% 25%; background-repeat:repeat;">
+当然 也可以不是等宽
+10%-0-50%-0-70%-0<br>
+蓝-粉-粉-蓝-蓝-粉<br>
+</div></td>
 </tr>
 </table>
 
