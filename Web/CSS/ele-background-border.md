@@ -1,15 +1,18 @@
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-- [三层盒模型](#三层盒模型)
-   - [box-shadow 多重边框](#box-shadow-多重边框)
-   - [box-shadow + outline 双层边框](#box-shadow-outline-双层边框)
-   - [border](#border)
-- [background](#background)
-   - [background](#background)
-   - [background 多重背景详解](#background-多重背景详解)
-   - [background 多重背景应用](#background-多重背景应用)
-   - [background-blend-mode](#background-blend-mode)
-- [盒模型的边和角的值简写语法](#盒模型的边和角的值简写语法)
+- [三层盒模型](#三层盒模型)   
+   - [box-shadow 多重边框](#box-shadow-多重边框)   
+   - [box-shadow + outline 双层边框](#box-shadow-outline-双层边框)   
+   - [border](#border)   
+- [background](#background)   
+   - [background](#background)   
+   - [background 多重背景详解](#background-多重背景详解)   
+   - [background 多重背景应用](#background-多重背景应用)   
+   - [background-blend-mode](#background-blend-mode)   
+- [盒模型的边和角的值简写语法](#盒模型的边和角的值简写语法)   
+- [渐变与条纹](#渐变与条纹)   
+   - [SVG vs. CSS](#svg-vs-css)   
+- [Border](#border)   
 
 <!-- /MDTOC -->
 
@@ -141,6 +144,8 @@ background: [background-color] [background-image] [background-repeat] [backgroun
 
 
 ## background 多重背景应用
+本小节涉及到一些笔记后面的内容, 阅读前请先阅读其他部分。
+关于CSS/SVG的选择也在后面。
 
 ## background-blend-mode
 
@@ -175,7 +180,8 @@ a b c d -> a b
 渐变 color a ->color b 的本质是划定两端, 中间根据算法填充 的一幅 `<image>`
 如果出现 a b 重合的情况 会出现一条明显的分界线
 
-<div  class="html">
+要记住, 渐变的实质是产生的 background-image
+
 <table>
 <tr><td><div class="mbox  mono black" style="
 background:linear-gradient(90deg, red 0, white 100%);">
@@ -193,7 +199,8 @@ background:linear-gradient(90deg, red 50%, white 50%);">
 <tr><td><div class="mbox  mono black" style="
 background:linear-gradient(45deg, red 0, white 100%);
 background-size:50% 50%; background-repeat:repeat;">
-0-100% 45deg 50% 50% repeat
+0-100% 45deg <br>
+50% 50% repeat
 </div></td>
 <td><div class="mbox  mono" style="
 background:linear-gradient(45deg, red 0, white 100%);
@@ -263,7 +270,62 @@ background-size:25% 25%; background-repeat:repeat;">
 10%-0-50%-0-70%-0<br>
 蓝-粉-粉-蓝-蓝-粉<br>
 </div></td>
-</tr>
-</table>
+<td><div class="mbox mono black s" style=" text-align:start;
+background:linear-gradient(60deg, #48a 25%, #fba 0, #fba 50%, #48a 0, #48a 75%, #fba 0);
+background-size:50% 50%; background-repeat:repeat;">
+这种"类似贴片"方法
+有很大局限性
+特别是在值不好计算时<br>
+(换句话话, 只有在 0, 45, 90 比较好用)<br>
+图中为 60deg 的情况
+</div></td></tr>
+<tr>
+<td colspan="2"><div class="mono black s" style="text-align:start;
+background:repeating-linear-gradient(60deg, #48a 25%, #fba 0, #fba 50%, #48a 0, #48a 75%);">
+使用 repeating-linear-gradient, </br>
+替代 linear-gradient, </br>
+创建更简单和灵活的重复条纹 </br>
+这时候长度值是基于渐变轴直接计算的 </br>
+25%-0-50%-0-75%
+</div></td>
+<td><div class="mbox mono black s" style="text-align:start;
+background:repeating-linear-gradient(60deg, #48a, #48a 25px, #fba 0, #fba 50px);">
+background:repeating-linear-gradient (60deg, #48a, #48a 15px, #fba 0, #fba 30px);
+</div></td></tr>
+<tr><td><div class="mbox mono black s" style="text-align:start;
+background:repeating-linear-gradient(45deg, #48a, #48a 25%, #fba 0, #fba 50%);
+background-size: 25% 25%">
+在创建45° 的条纹贴片时
+我们甚至可以混合两种方法
+来减少代码量
+<td><div class="mbox mono black s" style="text-align:start;
+background:#58a;
+background-image:repeating-linear-gradient(45deg, transparent, transparent 15px, hsla(0,0%,100%,0.1) 0, hsla(0,0%,100%,0.1) 30px);
+">
 
-</div>
+</div></td>
+</div></td></tr></table>
+
+在不使用 sass 等工具的情况下, 条纹的代码量其实是蛮大的, 而且很不 dry, 通常, 你要修改一个颜色或宽度 需要修改多个地方,
+
+对于同色系来说, 我们可以使用半透明条纹覆盖在纯色背景上来解决这个问题, 在这种情况下, 我们仅仅需要改变一处颜色即可
+
+## SVG vs. CSS
+
++ CSS 渐变 可以节省掉 HTTP 请求
+    + 但是对于现代浏览器来说, 我们可以把 SVG 文件 以 data URI 的方式内嵌到样式表中, 甚至不需要用 base64 或 URLencode 来对其编码:
+    + ```css
+        background: #eee url('data:image/svg+xml,\
+                    <svg xmlns="http://www.w3.org/2000/svg"\
+                    width="100" height="100" \
+                    fill-opacity=".25">\
+                    <rect x="50" width="50" height="50" /> \
+                    <rect ="50" width="50" height="50" /> \
+                    </svg>');
+        background-size: 30px 30px;
+        ```
+        http://play.csssecrets.io/checkerboard-svg
++ SVG 代码量更小
++ SVG 代码冗余方面也更好, 通常只需要更改一两个地方即可
+
+# Border
