@@ -220,6 +220,7 @@ background-size:20% 80%; background-repeat:no-repeat;">
 
 如上面涉及到的, 我们可以利用 重合的颜色线来画出条纹线
 
+
 <table>
 <tr><td><div class="mbox black mono" style="
 background:linear-gradient(45deg, red 50%, white 0);
@@ -352,99 +353,61 @@ round-stretch
 
 ### border-image-slice
 ![Slice](https://developer.mozilla.org/files/3814/border-image-slice.png)
+<style>
+.border-image-slice{
+    border: 50px solid transparent;
+    border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+    border-image-width: 1;
+}
+</style>
 
-<table><tr><td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<table><tr><td><div class="mbox mono border-image-slice" style="
 border-image-slice: 20%;
 ">slice:20%</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 33%;
 ">slice:33%</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 50%;
 ">slice:50%</div></td>
 </tr>
-<tr><td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<tr><td><div class="mbox mono  border-image-slice" style="
 border-image-slice: 51%;
 ">slice:51%</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 100%;
 ">slice:100%(initial)</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 112;
 ">slice:112</div></td>
 </tr>
-<tr><td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<tr><td><div class="mbox mono border-image-slice" style="
 border-image-slice: 33% 100%;
 ">slice: 33% 100%</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 51% 50%;
 ">slice: <br>51% 50%</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: unset;
 ">slice: unset</div></td>
 </tr>
-<tr><td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<tr><td><div class="mbox mono border-image-slice" style="
 border-image-slice: 5% 33% 50%;
 ">slice: 5% 33% 50%</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 33% 5% 33% 50%;
 ">slice: <br>33% 5% 33% 50%</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 10 20% 60% 70% fill;
 ">slice: 10 20% 60% 70% fill</div></td>
 </tr>
-<tr><td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<tr><td><div class="mbox mono border-image-slice" style="
 border-image-slice: 33% fill;
 ">slice: 33% fill</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 10% fill ;
 ">slice: <br>10% fill</div></td>
-<td><div class="mbox mono" style="
-border: 50px solid transparent;
-border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
-border-image-width: 1;
+<td><div class="mbox mono border-image-slice" style="
 border-image-slice: 10% 33% fill;
 ">slice: 10% 33% fill</div></td>
 </tr>
@@ -485,6 +448,7 @@ border-image-slice: unset;
 所以在 `51%`的时候中间一截会丢失: 51%+51% = 102%
 中间一截代表在原图中的大小是 100%-102% = -2%
 自然就无法显示了
+但是注意, 负数无法显示, 但是 0 是可以的
 
 fill 表示中间一格是否填充
 
