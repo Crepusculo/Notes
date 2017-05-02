@@ -13,6 +13,10 @@
 - [渐变与条纹](#渐变与条纹)   
    - [SVG vs. CSS](#svg-vs-css)   
 - [Border](#border)   
+   - [连续的图像边框](#连续的图像边框)   
+      - [border-image 与 九宫格伸缩法](#border-image-与-九宫格伸缩法)   
+      - [border-image-slice](#border-image-slice)   
+      - [作为保险的补充 不清真的做法](#作为保险的补充-不清真的做法)   
 
 <!-- /MDTOC -->
 
@@ -93,8 +97,7 @@
 + `outline` 作用于padding-content盒模型外边, 但是不会贴合padding-content盒模型
 
 ## border
-
-<div class="red">投影的内嵌和外扩(好像是给box-shadow属性加inset关键字)</div>
+hgb
 
 # background
 
@@ -329,3 +332,158 @@ background-image:repeating-linear-gradient(45deg, transparent, transparent 15px,
 + SVG 代码冗余方面也更好, 通常只需要更改一两个地方即可
 
 # Border
+
+## 连续的图像边框
+### border-image 与 九宫格伸缩法
+
+border-image 也是简写属性
+
+`border-image: source slice width outset repeat |initial|inherit;`
+
+_`source`_:
+_`slice`_:How to slice the border image 九宫格如何划分
+_`width`_:边框宽度
+_`outset`_:边框图像区域超出边框的量
+_`repeat`_:图像边框是否应平铺 (repeated)、铺满 (rounded) 或拉伸 (stretched)。
+round-stretch
+
+[W3S Sample](https://www.w3schools.com/cssref/tryit.asp?filename=trycss3_border-image)
+
+
+### border-image-slice
+![Slice](https://developer.mozilla.org/files/3814/border-image-slice.png)
+
+<table><tr><td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 20%;
+">slice:20%</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 33%;
+">slice:33%</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 50%;
+">slice:50%</div></td>
+</tr>
+<tr><td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 51%;
+">slice:51%</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 100%;
+">slice:100%(initial)</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 112;
+">slice:112</div></td>
+</tr>
+<tr><td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 33% 100%;
+">slice: 33% 100%</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 51% 50%;
+">slice: <br>51% 50%</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: unset;
+">slice: unset</div></td>
+</tr>
+<tr><td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 5% 33% 50%;
+">slice: 5% 33% 50%</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 33% 5% 33% 50%;
+">slice: <br>33% 5% 33% 50%</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 10 20% 60% 70% fill;
+">slice: 10 20% 60% 70% fill</div></td>
+</tr>
+<tr><td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 33% fill;
+">slice: 33% fill</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 10% fill ;
+">slice: <br>10% fill</div></td>
+<td><div class="mbox mono" style="
+border: 50px solid transparent;
+border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+border-image-width: 1;
+border-image-slice: 10% 33% fill;
+">slice: 10% 33% fill</div></td>
+</tr>
+</table>
+
+Syntax
+
+```css
+/* border-image-slice: slice */
+border-image-slice: 30%;
+
+/* border-image-slice: vertical horizontal */
+border-image-slice: 10% 30%;
+
+/* border-image-slice: top horizontal bottom */
+border-image-slice: 30 30% 45;
+
+/* border-image-slice: top right bottom left */
+border-image-slice: 7 12 14 5;
+
+/* border-image-slice: … fill */
+/* The fill value can be placed between any value */
+border-image-slice: 10% fill 7 12;
+/* 这条不行, 至少在Electron里不行 */
+
+/* Global values */
+border-image-slice: inherit;
+border-image-slice: initial;
+border-image-slice: unset;
+/**/
+```
+
+Formal Syntax
+```
+    <number-percentage>{1,4} && fill?
+    where
+    <number-percentage> = <number> | <percentage>
+```
+
+使用 number 的话,代表 pixel
+
+### 作为保险的补充 不清真的做法
