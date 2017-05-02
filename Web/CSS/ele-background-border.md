@@ -477,6 +477,15 @@ border-image-slice: unset;
 /**/
 ```
 
+硬要解释一波的话:
+每个值代表的是: 这个部分由原图的 "多少" 来组成, 比如
+`33%` 代表4个角落都是 33% * 33% 组成的
+`10% 50 33%` 代表4个角落分别是: 10% * 50px, 10% * 50px, 33% * 50px, 33% * 50px
+
+fill 表示中间一格是否填充
+
+border-image 的宽度由 border 属性本身决定 
+
 Formal Syntax
 ```
     <number-percentage>{1,4} && fill?
