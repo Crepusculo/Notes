@@ -1,46 +1,24 @@
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-- [三层盒模型](#三层盒模型)   
-   - [box-shadow 多重边框](#box-shadow-多重边框)   
-   - [box-shadow + outline 双层边框](#box-shadow-outline-双层边框)   
-   - [border](#border)   
-- [background](#background)   
-   - [background](#background)   
-   - [background 多重背景详解](#background-多重背景详解)   
-   - [background 多重背景应用](#background-多重背景应用)   
-   - [background-blend-mode](#background-blend-mode)   
-- [盒模型的边和角的值简写语法](#盒模型的边和角的值简写语法)   
-- [渐变与条纹](#渐变与条纹)   
-   - [SVG vs. CSS](#svg-vs-css)   
-- [Border](#border)   
-   - [连续的图像边框](#连续的图像边框)   
-      - [border-image 与 九宫格伸缩法](#border-image-与-九宫格伸缩法)   
-      - [border-image-slice](#border-image-slice)   
-      - [作为保险的补充 不清真的做法](#作为保险的补充-不清真的做法)   
+- [三层盒模型](#三层盒模型)
+   - [box-shadow 多重边框](#box-shadow-多重边框)
+   - [box-shadow + outline 双层边框](#box-shadow-outline-双层边框)
+   - [border](#border)
+- [background](#background)
+   - [background](#background)
+   - [background 多重背景详解](#background-多重背景详解)
+   - [background 多重背景应用](#background-多重背景应用)
+   - [background-blend-mode](#background-blend-mode)
+- [盒模型的边和角的值简写语法](#盒模型的边和角的值简写语法)
+- [渐变与条纹](#渐变与条纹)
+   - [SVG vs. CSS](#svg-vs-css)
+- [Border](#border)
+   - [连续的图像边框](#连续的图像边框)
+      - [border-image 与 九宫格伸缩法](#border-image-与-九宫格伸缩法)
+      - [border-image-slice](#border-image-slice)
+      - [作为保险的补充 不清真的做法](#作为保险的补充-不清真的做法)
 
 <!-- /MDTOC -->
-
-<style type="text/css">
-.green{
-    background:#009C67;
-    text-align:center;
-    font-size: 1.5em;
-    color: white;
-}
-.red{
-    background:#F4511E;
-    text-align:left;
-    padding-left: 16px;
-    font-size: 1.2em;
-    color: white
-}
-.html{
-    border:thin solid #009C67; padding:12px; margin:12px;
-}
-.editable{
-    background:#212121;
-}
-</style>
 
 # 三层盒模型
 `content-box` - `padding-box` - `border-box`
