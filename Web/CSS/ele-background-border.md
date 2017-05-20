@@ -496,7 +496,7 @@ border-image-width:48px;
 ">
 
 + border-image 层实际上在 background 层的上面
-+ 没办法做半透明,slice 开 filled 试试
++ 没办法做半透明,slice 开 fill 试试
 + 难维护, 比如这个地方和上面没对齐的原因是border width 有48px, 又比如图片大小和结构耦合写死了
 + border-width 和 border-image-width 基本没半毛钱关系
 + 把图片的四个角都展现出来 是个伪需求
