@@ -26,27 +26,43 @@
 # 三层盒模型
 `content-box` - `padding-box` - `border-box`
 
-# box-shadow
-## box-shadow 多重边框
+<a style="background:teal; color:teal;">...</a>outline 5px
+<a style="background:#ff4; color:#ff4;">...</a>border 50px (hide due to border-image
+<a style="background:#7ce; color:#7ce;">...</a>shadow 20px default
+<a style="background:#655; color:#655;">...</a>shadow 15px default
+<a style="background:teal;color:teal;">...</a>shadow 15px inset
+<a style="background:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');color:green;">...</a>border-image: 50px (outset:25px)
+<a style="background:#fb3;"> 100px </a>border-box
+<a style="background:#fb3;"> 20px </a>padding-box
+<a style="background:#fb3;"> 10px </a>content-box
+
 <div class="html">
- <div style="width:300px; height:200px; margin:0 auto;
-   box-shadow: 0 0 0 10px #655,
-               0 0 0 15px teal;
-   background: repeating-linear-gradient(45deg,
-               #fb3, #fb3 15px, transparent 0,transparent 30px);
-">两个外层 box-shadow叠加
+<div style="width:600px; height:400px; margin:0 auto; padding:100px;
+  outline: 5px dotted;
+  border-radius:50px;
+  box-shadow: 0 0 0 15px #655,
+               0 0 0 20px #7ce,
+               0 0 0 15px teal inset;
+  background: repeating-linear-gradient(45deg,
+               #fb3, #fb3 20px, transparent 0,transparent 100px),
+               repeating-linear-gradient(45deg, #fb3, #fb3 10px, transparent 0,transparent 20px),               repeating-linear-gradient(45deg,
+               #fb3, #fb3 5px, transparent 0,transparent 10px);
+  background-clip: border-box,padding-box,content-box;
+  border: 50px dashed #ff4;
+  border-image-source:url('https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSrqAE1wNfyd4Sygtzlk7AHvLK7rGoEqo7efJbv2cGbOLejaEIhrA');
+  border-image-width:50px;
+  border-image-slice:33% 33%;
+  border-image-outset:25px;
+  border-image-repeat:round;
+">Content-box
 </div>
 </div>
 
-  <div class="html">
-<div style="width:300px; height:200px; margin:0 auto;
- box-shadow: 0 0 0 10px #655 inset,
-             0 0 0 15px teal ;
- background: repeating-linear-gradient(45deg,
-             #fb3, #fb3 15px, transparent 0,transparent 30px);
-">灰色往里扩展了
-</div>
-</div>
++ 盒模型有三层主结构
++ 但是 `box-sizing` 只有 `border-box`和`content-box`两个属性
+
+
+# box-shadow
 
 + box-shadow 本来的作用是生成投影
 + 与 border 相比, box-shadow 最大的好处是可以生成任意数量的投影来模拟边框
@@ -55,7 +71,32 @@
 + 投影的行为和边框**不完全一致**
     + 投影不影响布局
     + 投影不受到 box-sizing 的影响
+    + 投影始终贴合border线
++ 正常box-shadow贴合 border 外边界, offset-box-shadow 贴合内边界
 + 用投影做出的虚假边框出现在元素的**外圈**,它们并不会响应鼠标事件。
+
+## box-shadow 多重边框
+<div class="html">
+ <div style="width:300px; height:200px; margin:0 auto;
+   box-shadow: 0 0 0 10px #655,
+               0 0 0 15px teal;
+   background: repeating-linear-gradient(45deg,
+               #332121, #332121 15px, #212121 0,#212121 30px);
+">
+
+两个外层 box-shadow叠加
+外层宽度 = 15px - 10px = 5px
+</div>
+</div>
+<div class="html">
+<div style="width:300px; height:200px; margin:0 auto;
+ box-shadow: 0 0 0 10px #655 inset,
+             0 0 0 15px #fb3 ;
+ background: repeating-linear-gradient(45deg,
+             #332121, #332121 15px, #212121 0,#212121 30px);
+">灰色往里扩展了
+</div>
+</div>
 
 ## box-shadow + outline 双层边框
 一幅图说明 `outline` 和 `box-shadow` 的不同
@@ -71,8 +112,11 @@
 </div>
 </div>
 
+# outline
 + `outline` 不接受多个值
-+ `outline` 作用于padding-content盒模型外边, 但是不会贴合padding-content盒模型
++ `outline` 作用于border-content盒模型外边, 但是不会贴合border-content盒模型
++ `outline` 可以接受一个负值
++ `outline` 骑 border 外边界的脸
 
 # background
 
@@ -498,8 +542,7 @@ border-image-width:48px;
 + border-image 层实际上在 background 层的上面
 + 没办法做半透明,slice 开 fill 试试
 + 难维护, 比如这个地方和上面没对齐的原因是border width 有48px, 又比如图片大小和结构耦合写死了
-+ border-width 和 border-image-width 基本没半毛钱关系
-+ 把图片的四个角都展现出来 是个伪需求
++ 图片的四个角一定对应四个盒模型的四个边角 是个伪需求 是阴谋论 是阿共搞的鬼
 </div></div>
 
 3. multiple-background
