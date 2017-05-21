@@ -1,25 +1,28 @@
 <!-- MDTOC maxdepth:6 firsth1:1 numbering:0 flatten:0 bullets:1 updateOnSave:1 -->
 
-- [三层盒模型](#三层盒模型)
-- [box-shadow](#box-shadow)
-   - [box-shadow 多重边框](#box-shadow-多重边框)
-   - [box-shadow + outline 双层边框](#box-shadow-outline-双层边框)
-- [background](#background)
-   - [background](#background)
-   - [background 多重背景详解](#background-多重背景详解)
-   - [background-blend-mode](#background-blend-mode)
-- [盒模型的边和角的值简写语法](#盒模型的边和角的值简写语法)
-- [渐变与条纹](#渐变与条纹)
-   - [SVG vs. CSS](#svg-vs-css)
-- [border](#border)
-   - [border-image 连续的图像边框](#border-image-连续的图像边框)
-      - [border-image 与 九宫格伸缩法](#border-image-与-九宫格伸缩法)
-      - [border-image-slice](#border-image-slice)
-      - [Formal Syntax](#formal-syntax)
-      - [作为保险的补充 不清真的做法](#作为保险的补充-不清真的做法)
-- [Tricks](#tricks)
-   - [伪随机背景 [条纹渐变][多重背景]](#伪随机背景-条纹渐变多重背景)
-   - [图片背景叠底的多种实现方式](#图片背景叠底的多种实现方式)
+- [三层盒模型](#三层盒模型)   
+- [box-shadow](#box-shadow)   
+   - [关于如何投影你想要的投影](#关于如何投影你想要的投影)   
+   - [box-shadow 多重边框](#box-shadow-多重边框)   
+   - [box-shadow + outline 双层边框](#box-shadow-outline-双层边框)   
+- [outline](#outline)   
+- [background](#background)   
+   - [background](#background)   
+   - [background 多重背景详解](#background-多重背景详解)   
+   - [background-blend-mode](#background-blend-mode)   
+- [盒模型的边和角的值简写语法](#盒模型的边和角的值简写语法)   
+- [渐变与条纹](#渐变与条纹)   
+   - [SVG vs. CSS](#svg-vs-css)   
+- [border](#border)   
+- [border-image](#border-image)   
+   - [border-image 连续的图像边框](#border-image-连续的图像边框)   
+      - [border-image 与 九宫格伸缩法](#border-image-与-九宫格伸缩法)   
+      - [border-image-slice](#border-image-slice)   
+         - [Formal Syntax](#formal-syntax)   
+      - [border-image-repeat](#border-image-repeat)   
+      - [border-image-width](#border-image-width)   
+      - [border-image-outset](#border-image-outset)   
+- [border-radius](#border-radius)   
 
 <!-- /MDTOC -->
 
@@ -75,8 +78,15 @@
 + 正常box-shadow贴合 border 外边界, offset-box-shadow 贴合内边界
 + 用投影做出的虚假边框出现在元素的**外圈**,它们并不会响应鼠标事件。
 
+```
+参数
+box-shadow: [水平偏移量] [垂直偏移量] [模糊半径] [向外扩张的程度] [颜色]
+```
+
+## 关于如何投影你想要的投影
+http://www.corelangs.com/css/box/shadow.html
+
 ## box-shadow 多重边框
-<div class="html">
  <div style="width:300px; height:200px; margin:0 auto;
    box-shadow: 0 0 0 10px #655,
                0 0 0 15px teal;
@@ -86,21 +96,21 @@
 
 两个外层 box-shadow叠加
 外层宽度 = 15px - 10px = 5px
+
 </div>
-</div>
-<div class="html">
 <div style="width:300px; height:200px; margin:0 auto;
  box-shadow: 0 0 0 10px #655 inset,
              0 0 0 15px #fb3 ;
  background: repeating-linear-gradient(45deg,
              #332121, #332121 15px, #212121 0,#212121 30px);
-">灰色往里扩展了
-</div>
+">
+
+灰色往里扩展了
+此外我们可以注意到, box-shadow遮盖了一部分上一个元素
 </div>
 
 ## box-shadow + outline 双层边框
 一幅图说明 `outline` 和 `box-shadow` 的不同
-<div class="html">
 <div style="width:300px; height:200px; margin:0 auto;
   outline: 5px solid;
   border-radius:32px;
@@ -109,7 +119,6 @@
   background: repeating-linear-gradient(45deg,
               #fb3, #fb3 15px, transparent 0,transparent 30px);
 ">
-</div>
 </div>
 
 # outline
@@ -156,7 +165,7 @@ background: [background-color] [background-image] [background-repeat] [backgroun
         repeating-linear-gradient(45deg,
                   #fb3, #fb3 15px, transparent 0,transparent 30px),
         repeating-linear-gradient(135deg,
-                  #e2b, #e2b 15px, transparent 0,transparent 30px);
+                  #efb, #efb 15px, transparent 0,transparent 30px);
     background-size:100px 100px, 100% 100%, 100%  100%;
     background-repeat:no-repeat;
     background-position:right 100px bottom 10px,0 0,right 100px bottom 100px;
@@ -346,9 +355,30 @@ background-image:repeating-linear-gradient(45deg, transparent, transparent 15px,
 + SVG 代码冗余方面也更好, 通常只需要更改一两个地方即可
 
 # border
+look at this border<span class="sbox" style="
+    border:24px solid transparent;
+    border-top-color: #fb8;
+    border-left-color: #009688;
+    border-right-color: #83aafe;
+    border-bottom-color: #b44;
+">text
+</span>
+<div style=" height:100px; width:100px;
+    border:24px solid transparent;
+    border-top-color: #fb8;
+    border-left-color: #009688;
+    border-right-color: #83aafe;
+    border-bottom-color: #b44;
+">test
+</div>
+border 从盒模型的 border-box 边界向内扩张
 
+
++ border 的 right 在 inline 模式下通常会被截断导致你看不完整
+
+# border-image
 ## border-image 连续的图像边框
-+ border-image 最大的问题在于 "没有人一定要让图片的"
++ border-image 最大的问题在于 "没有人一定要让图片的4个边角对应盒模型的四个边角"
 ### border-image 与 九宫格伸缩法
 
 border-image 也是简写属性
@@ -468,11 +498,85 @@ fill 表示中间一格是否填充
 
 border-image 的宽度由 border 属性本身决定
 
-### Formal Syntax
+#### Formal Syntax
 ```
     <number-percentage>{1,4} && fill?
     where
     <number-percentage> = <number> | <percentage>
 ```
 
-使用 number 的话,代表 pixel
+使用 number 的话,代表 pixel　__(图片像素而不是屏幕像素)__
+
+### border-image-repeat
+### border-image-width
+### border-image-outset
+
+# border-radius
+```
+border-radius: [四个角]
+border-radius: [左上右下] [右上左下]
+...
+
+border-radius: [纵向] / [径向]
+```
+
+![](https://user-gold-cdn.xitu.io/2017/5/19/a7dc1c4612749412a1d6f2337ee13af0)
+半径画出的圆遭遇任一另一个边界圆时都会停止扩张
+
+> 当任意两个相邻圆角的半径之和超过 border box 的尺寸时, 用户代理必须按比例缩小各个边框半径所使用的值, 直到它们不会相交为止
+> ------ <cite>w3.org</cite>
+
+( 所以 100% 50% 这种其实是被压缩到了 50% 25% )
+注意 : 100% / 50% 的缩小程度还没到 50% / 25%
+<table>
+<tbody>
+        <tr>
+            <td><section class="sbox mono black" style="border-radius:40px">40px</section></td>
+            <td><section class="sbox mono black" style="border-radius:40px 20px">40px 20px</section></td>
+            <td><section class="sbox mono black" style="border-radius:40px 30px 20px ">40px 30px 20px</section></td>
+            <td><section class="sbox mono black" style="border-radius:40px 30px 20px 10px ">40px 30px 20px 10px</section></td>
+        </tr>
+</tbody>
+</table>
+
+<table>
+<tbody>
+        <tr row="1">
+            <td><section class="mbox-e mono black" style="border-radius:45%">45%
+            </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:50%">50% </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:999px">999px
+            </section></td>
+        </tr>
+        <tr  row="2">
+            <td><section class="mbox-e mono black" style="border-radius:100% 50%">100% 50%
+            </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:50% 25%">50% 25%; </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:50% 100%">50% 100%</section></td>
+        </tr>
+        <tr row="3">
+            <td><section class="mbox-e mono black" style="border-radius:100% / 50%">100% / 50%
+            </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:50% / 25%">50% / 25%; </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:50% / 100%">50% / 100%</section></td>
+        </tr>
+        <tr row="4">
+            <td><section class="mbox-e mono black" style="border-radius:100% 0 0 0/ 50%">100% 0 0 0/ 50%
+            </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:50% 0 0 0/ 50%">50% 0 0 0 / 50%; </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:100% 0 0 0 / 100%">100% 0 0 0 / 100%</section></td>
+        </tr>
+        <tr row="5">
+            <td><section class="mbox-e mono black" style="border-radius:100% 0 0 100%/ 50%">100% 0 0 100% / 50%
+            </section></td>
+            <td><section class="mbox-e mono black" style="color:#009688;border-radius:50%/100% 100% 0 0">50% / 100% 100% 0 0</section></td>
+            <td><section class="mbox-e mono black" style="border-radius:0 100% 100% 0 / 50%">0 100% 100% 0 / 50%</section></td>
+        </tr>
+        <tr row="6">
+            <td><section class="mbox-e mono black" style="border-radius:100% 0 0 0">100% 0 0 0
+            </section></td>
+            <td><section class="mbox-e mono black" style="border-radius:999px 0 0 0">999px 0 0 0</section></td>
+            <td><section class="mbox-e mono black" style="border-radius:80px 0 0 0">80px 0 0 0</section></td>
+        </tr>
+</tbody>
+</table>
